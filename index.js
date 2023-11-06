@@ -21,8 +21,10 @@ function updateselectedcount() {
   localStorage.setItem("selectedcount", JSON.stringify(count1));
   const selectedseats = JSON.parse(localStorage.getItem("selectedcount"));
 
-  count.innerText = selectedseats.length;
-  total.innerText = selectedseats.length * ticketprice;
+  if (selectedseats.length >= 0 && selectedseats !== null) {
+    count.innerText = selectedseats.length;
+    total.innerText = selectedseats.length * ticketprice;
+  }
 }
 
 function populateui() {
